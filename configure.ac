@@ -85,8 +85,8 @@ AC_SUBST(READLINE_LIBS)
 #   --enable-threadsafe
 #
 AC_ARG_ENABLE(threadsafe, [AS_HELP_STRING(
-  [--enable-threadsafe], [build a thread-safe library [default=yes]])], 
-  [], [enable_threadsafe=yes])
+    [--enable-threadsafe], [build a thread-safe library [default=yes]])], 
+    [], [enable_threadsafe=yes])
 if test x"$enable_threadsafe" == "xno"; then
   BUILD_CFLAGS="$BUILD_CFLAGS -DSQLITE_THREADSAFE=0"
 else
@@ -207,10 +207,10 @@ fi
 #   --enable-session
 #
 AC_ARG_ENABLE(session, [AS_HELP_STRING(
-  [--enable-session], [enable the session extension [default=no]])], 
-  [], [])
+  [--enable-session], [enable the session extension [default=yes]])], 
+  [], [enable_sessio=yes])
 AC_MSG_CHECKING([Session extension])
-if test x"$enable_session" = "xyes"; then
+if test x"$enable_session" != "xno"; then
   BUILD_CFLAGS="$BUILD_CFLAGS -DSQLITE_ENABLE_SESSION -DSQLITE_ENABLE_PREUPDATE_HOOK"
   AC_MSG_RESULT([enabled])
 else
